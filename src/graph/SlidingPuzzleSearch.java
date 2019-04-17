@@ -10,7 +10,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch {
 	{   
 		HashSet<Integer> set = new HashSet<Integer>();
 		Stack<INode> stack = new Stack<INode>();
-		
+		int iterativeDepth = 0;
 		INode currentNode = searchNode;
 		stack.push(currentNode);
 		set.add(currentNode.hashCode());
@@ -25,18 +25,19 @@ public class SlidingPuzzleSearch implements IPuzzleSearch {
 	    		System.out.println(currentNode.toString());
 	    		break;// we are only searching for the first solution found
 	    	}
-	    	if(currentNode.getNextNodes() != null)
+	    	iterativeDepth ++;
+	    	if(currentNode.getNextNodes() != null && currentNode.getLevel() <= iterativeDepth)
 	    	{
-		    	for(INode child : currentNode.getNextNodes()) 
-		    	{
-			   		if(!set.contains(child.hashCode()) && child.getLevel() <=64 )
-			   		{
-			   			stack.push(child);
-			    		set.add(child.hashCode());
-			    	}
+			    for(INode child : currentNode.getNextNodes()) 
+			    {
+				   	if(!set.contains(child.hashCode()))
+				   	{
+				   		stack.push(child);
+				    	set.add(child.hashCode());
+				    }
 			    }
 	    	}
-			currentNode = stack.pop();
+	    	currentNode = stack.pop();
 	    }
 	}
 }

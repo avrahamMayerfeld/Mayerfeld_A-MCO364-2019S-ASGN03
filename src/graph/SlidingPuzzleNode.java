@@ -11,15 +11,15 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class SlidingPuzzleNode implements INode {
 	
-	int [][] board = new int [3][3];
-	INode parent;
-	int level;
-	SlidingPuzzleNode childNodeLeft;
-	SlidingPuzzleNode childNodeRight;
-	SlidingPuzzleNode childNodeUp;
-	SlidingPuzzleNode childNodeDown;
+	private int [][] board = new int [3][3];
+	private INode parent;
+	private int level;
+	private SlidingPuzzleNode childNodeLeft;
+	private SlidingPuzzleNode childNodeRight;
+	private SlidingPuzzleNode childNodeUp;
+	private SlidingPuzzleNode childNodeDown;
 	
-	ArrayList<INode> children =  new ArrayList<INode>();
+	private ArrayList<INode> children =  new ArrayList<INode>();
 	//blank space moves
     boolean canMoveLeft() {return board[0][0] > 0 && board[1][0] > 0 && board[2][0] > 0;}
     boolean canMoveRight() {return board[0][2] > 0 && board[1][2] > 0 && board[2][2] > 0;}

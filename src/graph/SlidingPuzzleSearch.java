@@ -5,16 +5,27 @@ import java.util.Stack;
 
 public class SlidingPuzzleSearch implements IPuzzleSearch {
 
+	private HashSet<Integer> set = new HashSet<Integer>();
+	private Stack<INode> stack = new Stack<INode>();
+	private INode currentNode;
+	private int iterativeDepth = 0;
 	@Override
 	public void search(INode searchNode) 
 	{   
-		HashSet<Integer> set = new HashSet<Integer>();
-		Stack<INode> stack = new Stack<INode>();
-		int iterativeDepth = 0;
-		INode currentNode = searchNode;
+		currentNode = searchNode;
+		while(!currentNode.isSolution())
+		{	
+			set.clear();
+			iterativeDepth ++;
+			performSearch();
+		}
+		
+	}
+	
+	public void performSearch() 
+	{
 		stack.push(currentNode);
 		set.add(currentNode.hashCode());
-		
 		while (!stack.isEmpty())
 	    {   
 			System.out.println("Searching on level " + currentNode.getLevel());
@@ -25,7 +36,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch {
 	    		System.out.println(currentNode.toString());
 	    		break;// we are only searching for the first solution found
 	    	}
-	    	iterativeDepth ++;
+	    	
 	    	if(currentNode.getNextNodes() != null && currentNode.getLevel() <= iterativeDepth)
 	    	{
 			    for(INode child : currentNode.getNextNodes()) 
@@ -33,11 +44,11 @@ public class SlidingPuzzleSearch implements IPuzzleSearch {
 				   	if(!set.contains(child.hashCode()))
 				   	{
 				   		stack.push(child);
-				    	set.add(child.hashCode());
 				    }
 			    }
 	    	}
 	    	currentNode = stack.pop();
+	    	set.add(currentNode.hashCode());
 	    }
 	}
 }

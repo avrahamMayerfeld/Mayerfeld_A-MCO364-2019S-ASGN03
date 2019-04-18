@@ -3,7 +3,8 @@ package graph;
 import java.util.HashSet;
 import java.util.Stack;
 
-public class SlidingPuzzleSearch implements IPuzzleSearch {
+public class SlidingPuzzleSearch implements IPuzzleSearch 
+{
 	private HashSet<Integer> set = new HashSet<Integer>();
 	private Stack<INode> stack = new Stack<INode>();
 	private boolean solutionFound;
@@ -15,7 +16,6 @@ public class SlidingPuzzleSearch implements IPuzzleSearch {
 		int timesDidDFS = 0;
 		while(!solutionFound)
 		{	
-			set.clear();
 			bound ++;
 			currentNode = searchNode;
 			stack.push(currentNode);
@@ -47,16 +47,18 @@ public class SlidingPuzzleSearch implements IPuzzleSearch {
 				break;
 			}
 			if(currentNode.getNextNodes() != null && currentNode.getLevel() <= bound)
-	    	{
+	    		{
 			    for(INode child : currentNode.getNextNodes()) 
 			    {
 				   	if(!set.contains(child.hashCode()))
 				   	{
 				   		stack.push(child);
 				   	}
-				}
-	    	}
+			    }
+	    	        }
 	    	currentNode = stack.pop();
-	    }
+	       	}
+		set.clear();
+		stack.clear();
 	}
 }

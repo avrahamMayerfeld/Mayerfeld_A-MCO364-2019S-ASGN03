@@ -2,7 +2,8 @@ package graph;
 
 import java.util.Stack;
 
-public class PuzzleDemo  {
+public class PuzzleDemo  
+{
 
 	public static void main(String[]args)
 	{

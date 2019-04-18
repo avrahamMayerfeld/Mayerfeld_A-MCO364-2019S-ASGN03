@@ -56,7 +56,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch
 				   	}
 			    }
 	    	        }
-	    	currentNode = stack.pop();
+	    		currentNode = stack.pop();
 	       	}
 		set.clear();
 		stack.clear();

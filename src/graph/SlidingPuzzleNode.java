@@ -236,21 +236,25 @@ public class SlidingPuzzleNode implements INode {
 	}
 	
 	@Override
-    public int hashCode()
-    {
-        Integer hash = 0;
-        StringBuilder hashStringBuilder = new StringBuilder("1");
-        String hashString;
-        for (int x = 0; x <= 2; x++)
-		{
-			for (int y = 0; y <= 2; y++)
-			{        
-				hashStringBuilder.append(board[x][y]);
-			}
-		}
-        hashString = hashStringBuilder.toString();
-        hash = Integer.parseInt(hashString);
-        return hash;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.deepHashCode(board);
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SlidingPuzzleNode other = (SlidingPuzzleNode) obj;
+		if (!Arrays.deepEquals(board, other.board))
+			return false;
+		return true;
 	}
 	
     public String toString() 

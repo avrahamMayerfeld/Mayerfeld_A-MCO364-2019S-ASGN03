@@ -21,10 +21,10 @@ public class SlidingPuzzleNode implements INode {
 	
 	private ArrayList<INode> children =  new ArrayList<INode>();
 	//blank space moves
-    boolean canMoveLeft() {return board[0][0] > 0 && board[1][0] > 0 && board[2][0] > 0;}
-    boolean canMoveRight() {return board[0][2] > 0 && board[1][2] > 0 && board[2][2] > 0;}
-    boolean canMoveUp() {return board[0][0] > 0 && board[0][1] > 0 && board[0][2] > 0;}
-    boolean canMoveDown() {return board[2][0] > 0 && board[2][1] > 0 && board[2][2] > 0;}
+	boolean canMoveLeft() {return board[0][0] > 0 && board[1][0] > 0 && board[2][0] > 0;}
+	boolean canMoveRight() {return board[0][2] > 0 && board[1][2] > 0 && board[2][2] > 0;}
+	boolean canMoveUp() {return board[0][0] > 0 && board[0][1] > 0 && board[0][2] > 0;}
+	boolean canMoveDown() {return board[2][0] > 0 && board[2][1] > 0 && board[2][2] > 0;}
 	
 	//for child nodes.
 	public SlidingPuzzleNode(int oldLevel, INode parent, int [][] newBoard)
@@ -41,23 +41,23 @@ public class SlidingPuzzleNode implements INode {
 		parent = null;
 		board [0][0] = one;
 		board [0][1] = two;
-	    board [0][2] = three;
+	        board [0][2] = three;
 		board [1][0] = four;
 		board [1][1] = five;
 		board [1][2] = six;
 		board [2][0] = seven;
 		board [2][1] = eight;
-        board [2][2] = nine;
+                board [2][2] = nine;
 	}
 	
 	@Override
 	public ArrayList<INode> getNextNodes() 
 	{	
 		createAllMoves();
-        children.add(childNodeLeft);
-        children.add(childNodeRight);
-        children.add(childNodeUp);
-        children.add(childNodeDown);
+		children.add(childNodeLeft);
+		children.add(childNodeRight);
+		children.add(childNodeUp);
+		children.add(childNodeDown);
         
 		if(children.isEmpty())
 			return null;
@@ -261,13 +261,13 @@ public class SlidingPuzzleNode implements INode {
     {
     	StringBuilder boardBuilder = new StringBuilder();
     	for (int x = 0; x <= 2; x++)
- 		{
+ 	{
     		for (int y = 0; y <= 2; y++)
- 			{
- 				boardBuilder.append(board[x][y]);
- 			}
- 			boardBuilder.append("\r\n");
+ 		{
+ 			boardBuilder.append(board[x][y]);
  		}
+ 		boardBuilder.append("\r\n");
+ 	}
  				
     	return parent == null ? boardBuilder.toString() : parent.toString() + "\r\n" + boardBuilder.toString();
     }

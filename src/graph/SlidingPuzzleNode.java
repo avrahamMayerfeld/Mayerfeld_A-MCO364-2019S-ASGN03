@@ -271,5 +271,19 @@ public class SlidingPuzzleNode implements INode {
  				
     	return parent == null ? boardBuilder.toString() : parent.toString() + "\r\n" + boardBuilder.toString();
     }
+	
+	public int getBoardAsInt(){
+		StringBuilder boardHashBuilder = new StringBuilder();
+		for (int x = 0; x <= 2; x++)
+		{
+			for (int y = 0; y <= 2; y++)
+			{
+				boardHashBuilder.append(board[x][y]);
+			}
+			
+		}
+		int boardInt = Integer.parseInt(boardHashBuilder.toString());
+		return boardInt;
+	}	
         
 }

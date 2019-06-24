@@ -1,12 +1,15 @@
 package graph;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public interface INode {
-	List<INode> getNextNodes();
+	ArrayList<INode> getNextNodes();
 	int getLevel();
 	INode getParent();
 	boolean isSolution();
 	double getHValue();
 	double getGValue();
+	int getBoardAsInt();
 }

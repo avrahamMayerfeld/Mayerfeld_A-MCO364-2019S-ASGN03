@@ -30,8 +30,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch
 			stack.push(currentNode);
 			doBoundedDFS();
 			timesDidDFS++;
-			if(timesDidDFS > 50)//prevent infinite loop in unsolvable puzzles, 50 is probably very generous
-			{
+			if(timesDidDFS > 50)//prevent infinite loop in unsolvable puzzles, 50 is probably very generouse			{
 				System.out.println("This puzzle is unsolvable.");
 				break;
 			}

@@ -230,7 +230,7 @@ public class SlidingPuzzleNode implements INode {
 		if(canMoveRight())
 			childNodeRight = moveRight();
 		if(canMoveUp())
-			childNodeUp = moveUp();
+				childNodeUp = moveUp();
 		if(canMoveDown())
 			childNodeDown = moveDown();
 	}
@@ -257,22 +257,22 @@ public class SlidingPuzzleNode implements INode {
 		return true;
 	}
 	
-    public String toString() 
-    {
-    	StringBuilder boardBuilder = new StringBuilder();
-    	for (int x = 0; x <= 2; x++)
- 	{
-    		for (int y = 0; y <= 2; y++)
- 		{
- 			boardBuilder.append(board[x][y]);
- 		}
- 		boardBuilder.append("\r\n");
- 	}
- 				
-    	return parent == null ? boardBuilder.toString() : parent.toString() + "\r\n" + boardBuilder.toString();
-    }
+	public String toString() 
+	{
+		StringBuilder boardBuilder = new StringBuilder();
+		for (int x = 0; x <= 2; x++)
+		{
+			for (int y = 0; y <= 2; y++)
+			{
+				boardBuilder.append(board[x][y]);
+			}
+			boardBuilder.append("\r\n");
+		}
+
+		return parent == null ? boardBuilder.toString() : parent.toString() + "\r\n" + boardBuilder.toString();
+	 }
 	
-	public int getBoardAsInt(){
+         public int getBoardAsInt(){
 		StringBuilder boardHashBuilder = new StringBuilder();
 		for (int x = 0; x <= 2; x++)
 		{

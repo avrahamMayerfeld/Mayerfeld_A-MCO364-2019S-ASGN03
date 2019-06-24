@@ -1,6 +1,5 @@
 package graph;
 
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -72,7 +71,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch
 				   	}
 			    }
 	    	 	}
-			 currentNode = stack.pop();
+			currentNode = stack.pop();
 		}
 		set.clear();
 		stack.clear();
@@ -81,7 +80,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch
 	public void mapOccurences(INode child) {
 		if(totalTimesNodeConsidered_EvenIfUnsearched.containsKey(child.getBoardAsInt()))
     		{
-    		totalTimesNodeConsidered_EvenIfUnsearched.put( child.getBoardAsInt(),
+    			totalTimesNodeConsidered_EvenIfUnsearched.put( child.getBoardAsInt(),
     				totalTimesNodeConsidered_EvenIfUnsearched.get(child.getBoardAsInt()) + 1 );
     		}
     		else

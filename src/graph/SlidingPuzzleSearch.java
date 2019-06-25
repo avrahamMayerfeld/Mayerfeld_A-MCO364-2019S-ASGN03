@@ -90,7 +90,7 @@ public class SlidingPuzzleSearch implements IPuzzleSearch
 	
 	static int numberOfNodes = 0;
 	public void printNodesOccurences() {
-		System.out.println("The following tracks occurences of vertices, although each was pushed onto the stack only once; their potentail occurences are tracked.");
+		System.out.println("The following tracks occurences of vertices, although each was pushed onto the stack only once; their encounters as children are tracked.");
 		Set<Entry<Integer, Integer>> totalEntry = totalTimesNodeConsidered_EvenIfUnsearched.entrySet();
 		totalEntry.stream().forEach(e -> 
 		{

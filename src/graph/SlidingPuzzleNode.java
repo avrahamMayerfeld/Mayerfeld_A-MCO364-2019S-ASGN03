@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Stack;
 
-import org.apache.commons.lang3.NotImplementedException;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class SlidingPuzzleNode implements INode {
 	
@@ -83,7 +80,7 @@ public class SlidingPuzzleNode implements INode {
 		return Arrays.deepToString(board).equals("[[1, 2, 3], [4, 5, 6], [7, 8, 0]]");
 	}
 
-	@Override
+	/*@Override
 	public double getHValue() {
 		throw new NotImplementedException("This method is not implemented");
 	}
@@ -92,7 +89,7 @@ public class SlidingPuzzleNode implements INode {
 	public double getGValue() {
 		throw new NotImplementedException("This method is not implemented");
 
-	}
+	}*/
 	
 	//x and y are technically reversed
 	//repetition of boolean canMove invocation was necessary for arrayOutOfBounds prevention
@@ -284,6 +281,18 @@ public class SlidingPuzzleNode implements INode {
 		}
 		int boardInt = Integer.parseInt(boardHashBuilder.toString());
 		return boardInt;
-	}	
+	}
+		@Override
+		public double getHValue() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public double getGValue() {
+			// TODO Auto-generated method stub
+			return 0;
+		}	
         
 }
+
+
